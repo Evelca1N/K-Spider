@@ -22,13 +22,16 @@ search_keyword = ''
 _DEBUG = False
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:36.0) Gecko/20100101 Firefox/36.0'}
 
+filePoint = open('Log', 'a')
+
 
 def get_all_from_queue(queue):
     try:
         while True:
             yield queue.get_nowait()
-    except Queue.Empty:
-        # print 'position 1'
+    except Queue.Empty as e:
+        filePoint.write('[!] exception at threadpool.py Line 33\n')
+        filePoint.write('\nException : %s' % e)
         raise StopIteration
 
 
@@ -61,13 +64,13 @@ def start_crawling_retrieve_html(target_url, now_deepth):
             file_point.write(raw_html)
             file_point.close()
         except Exception as e:
-            # print 'position 0'
-            # print e
+            filePoint.write('[!] exception at threadpool.py Line 67\n')
+            filePoint.write('\nException : %s' % e)
             file_point.close()
+
     except Exception as e:
-        # print 'position 2',
-        # print e
-        pass
+        filePoint.write('[!] exception at threadpool.py Line 72\n')
+        filePoint.write('\nException : %s' % e)
 
     return soup_html
     pass
@@ -82,9 +85,8 @@ def add_next_deepth_to_queue(soup_html, now_deepth, target_url):
             elif link['href'].startswith('/'):
                 links.add(target_url + link['href'])
         except Exception as e:
-            # print 'position 3'
-            # print e
-            pass
+            filePoint.write('[!] exception at threadpool.py Line 88\n')
+            filePoint.write('\nException : %s' % e)
     
     for link in links:
         # Qin.put((link, now_deepth))
@@ -95,22 +97,22 @@ def do_work_from_queue():
     global informations
     # global spared_crawlers
     while True:
+
         try:
             target_url, now_deepth = Qin.get(block=True, timeout=6)      
             # 此处可能等待,爬虫从Qin中得到信息元组(target_url, deepth),
             # 另外这里有一点要提一下，timeout需要根据当前网络状况适当调整
         except Queue.Empty:
-            # print 'position 4'
             global spared_thread, thread_pool_size
             if spared_thread >= int(thread_pool_size):
                 try:
                     stop_and_free_thread_pool()
-                except NameError:
-                    pass
+                except NameError as e:
+                    filePoint.write('[!] exception at threadpool.py Line 67\n')
+                    filePoint.write('\nException : %s' % e)
                 break
 
             spared_thread += 1
-            # print 'Spared_thread and thread_pool_size %s : %s ' % (spared_thread, thread_pool_size)
             # print '(i)spared thread [%s], total thread [%s], active thread[%s]' % (spared_thread, int(thread_pool_size), threading.activeCount())
 
             continue
@@ -120,15 +122,15 @@ def do_work_from_queue():
 
         try:
             soup_html = start_crawling_retrieve_html(target_url, now_deepth)
-            # print 'executing....'
-            pass          # processing........
         except Exception as e:
+            filePoint.write('[!] exception at threadpool.py Line 127\n')
+            filePoint.write('\nException : %s' % e)
             # print 'position 5 with target_url : ' + target_url
-            # print e
-            pass
-            # print e
 
-        # 当前深度等于爬取最大深度时，不再把当前深度的下一深度链接放入待爬取队列中而是直接从队列中取下一个待爬取内容, 此处考虑直接用break跳出循环的话等于终止了线程，所以使用continue
+        # 当前深度等于爬取最大深度时，
+        # 不再把当前深度的下一深度链接放入待爬取队列中
+        # 而是直接从队列中取下一个待爬取内容, 
+        # 此处考虑直接用break跳出循环的话等于终止了线程，所以使用continue
         if now_deepth == int(deepth_of_crawlers_go):          
             # spared_crawlers += 1
             # print 'spared crawlers[%s]' % spared_crawlers
@@ -136,12 +138,8 @@ def do_work_from_queue():
             #     pass
                 # break_all()
             continue
-        # print 'after continue'
         now_deepth += 1
-        # spared_crawlers += 1
-        # print '1'
         add_next_deepth_to_queue(soup_html, now_deepth, target_url)
-        # print '2'
         
 
 def make_and_start_thread_pool(number_of_thread_in_pool=5, deepth=1, keyword='', deamons=True):
@@ -175,6 +173,7 @@ def stop_and_free_thread_pool():
             pass
     del Pool
     finished_flag = True
+    filePoint.close()
 
 
 def job_finished():

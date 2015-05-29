@@ -36,7 +36,7 @@ if __name__ == "__main__":
     # Qin, Qout = Queue.Queue(), Queue.Queue()
 
     # 解析传入的参数，并存入对应的位置
-    parser = optparse.OptionParser('python v1_07.py -u url --thread=10 --deep=2 --key=keyword')
+    parser = optparse.OptionParser('python K.py -u url --thread=10 --deep=2 --key=keyword')
     parser.add_option('-u', dest='url', help='the url where put the crawlers on')
     parser.add_option('-d', '--deep', dest='deep', help='the deepth lovely crawlers dig, default deepth is 1', default=1, metavar='DEEPTH')
     parser.add_option('--thread', dest='thread_num', help='the number of thread for crawlers, default thread_num is 10', default=10)
@@ -66,7 +66,7 @@ if __name__ == "__main__":
             # 线程池开始运作
             make_and_start_thread_pool(options.thread_num, options.deep, options.keyword)
 
-            # 每隔10s输出爬虫情况,爬虫爬完退出
+            # 每隔5s输出爬虫情况,爬虫爬完退出
             while not job_finished():
                 information = get_crawlers_information()
                 time.sleep(5)
