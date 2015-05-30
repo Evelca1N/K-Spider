@@ -8,21 +8,26 @@ from bs4 import BeautifulSoup
 import urllib2
 import requests
 import pdb
+import re
+
+from libs.fontcolor.colorama import *
 
 
-finished_flag = False
-Qin = Queue.Queue()
-Pool = []
-deepth_of_crawlers_go = 0
-spared_thread = 0
-thread_pool_size = 0
-informations = {'page':0, 'deepth':0}
-href_list = []
-search_keyword = ''
-_DEBUG = False
-headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:36.0) Gecko/20100101 Firefox/36.0'}
+finished_flag = False   # Flag telling if the spider is stop crawling
+Qin = Queue.Queue()     # Queue of uncrawled site
+Pool = []               # Thread Pool
+deepth_of_crawlers_go = 0   # Deepth of spiders go
+spared_thread = 0           # spared_thread
+thread_pool_size = 0        # Size of thread pool
+informations = {'page':0, 'deepth':0}   # Informations turple
+href_list = []          # List of finished url
+search_keyword = ''     # Search Keyword
+regex_pattern = ''      # Regex pattenr used for matching the specific data
+_DEBUG = False          # Debug mode switcher
 
-filePoint = open('Log', 'a')
+
+headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:36.0) Gecko/20100101 Firefox/36.0',
+           'Cookie': ''}
 
 
 def get_all_from_queue(queue):
@@ -30,8 +35,9 @@ def get_all_from_queue(queue):
         while True:
             yield queue.get_nowait()
     except Queue.Empty as e:
-        filePoint.write('[!] exception at threadpool.py Line 33\n')
-        filePoint.write('\nException : %s' % e)
+        filePoint = open('Log', 'a')
+        filePoint.write('\n[!] exception at threadpool.py Line 33')
+        filePoint.write('\nException : %s\n' % e)
         raise StopIteration
 
 
@@ -43,34 +49,40 @@ def title_check(title):
 
 
 def start_crawling_retrieve_html(target_url, now_deepth):
-    # print target_url
-    save_flag = True
+    """Returns the soup_html which conntains the link ref"""
+
     request = requests.get(target_url, headers=headers)
     raw_html = request.content
     soup_html = BeautifulSoup(raw_html, from_encoding='gb18030')
     title = soup_html.title.string
     title = title_check(title)
 
-    # 关键字不存在的情况下直接返回
-    global search_keyword
-    if search_keyword:
-        if search_keyword not in raw_html:
-            return soup_html
+    # 关键字不存在的情况下直接返回, 就算当前页面不含关键字仍然
+    # 往当前页面的下级页面进行搜索
+    global search_keyword, regex_pattern
+    if search_keyword and search_keyword not in raw_html:
+        return soup_html
+
+    # 取回当前site的html之后对rePattern进行检查，有匹配的话就保存下来
+    if regex_pattern:
+        regexPattern(regex_pattern, raw_html)
 
     try:
         file_point = open('output/deep%s/"%s".html' % (now_deepth, title[:70]), 'w')           # 将爬取到的html数据按照htlm<title>中内容保存到output文件夹
         try:
-            raw_html = raw_html.encode('utf-8')
+            # raw_html = raw_html.encode('utf-8')
             file_point.write(raw_html)
             file_point.close()
         except Exception as e:
-            filePoint.write('[!] exception at threadpool.py Line 67\n')
-            filePoint.write('\nException : %s' % e)
+            filePoint = open('Log', 'a')
+            filePoint.write('\n[!] exception at threadpool.py Line 69')
+            filePoint.write('\nException : %s\n' % e)
             file_point.close()
 
     except Exception as e:
-        filePoint.write('[!] exception at threadpool.py Line 72\n')
-        filePoint.write('\nException : %s' % e)
+        filePoint = open('Log', 'a')
+        filePoint.write('\n[!] exception at threadpool.py Line 75')
+        filePoint.write('\nException : %s\n' % e)
 
     return soup_html
     pass
@@ -85,8 +97,9 @@ def add_next_deepth_to_queue(soup_html, now_deepth, target_url):
             elif link['href'].startswith('/'):
                 links.add(target_url + link['href'])
         except Exception as e:
-            filePoint.write('[!] exception at threadpool.py Line 88\n')
-            filePoint.write('\nException : %s' % e)
+            filePoint = open('Log', 'a')
+            filePoint.write('\n[!] exception at threadpool.py Line 92')
+            filePoint.write('\nException : %s\n' % e)
     
     for link in links:
         # Qin.put((link, now_deepth))
@@ -95,11 +108,10 @@ def add_next_deepth_to_queue(soup_html, now_deepth, target_url):
 
 def do_work_from_queue():
     global informations
-    # global spared_crawlers
     while True:
 
         try:
-            target_url, now_deepth = Qin.get(block=True, timeout=6)      
+            target_url, now_deepth = Qin.get(block=True, timeout=3)      
             # 此处可能等待,爬虫从Qin中得到信息元组(target_url, deepth),
             # 另外这里有一点要提一下，timeout需要根据当前网络状况适当调整
         except Queue.Empty:
@@ -108,8 +120,11 @@ def do_work_from_queue():
                 try:
                     stop_and_free_thread_pool()
                 except NameError as e:
-                    filePoint.write('[!] exception at threadpool.py Line 67\n')
-                    filePoint.write('\nException : %s' % e)
+                    # filePoint = open('Log', 'a')
+                    # filePoint.write('\n[!] exception at \
+                                # threadpool.py Line 117')
+                    # filePoint.write('\nException : %s\n' % e)
+                    pass
                 break
 
             spared_thread += 1
@@ -117,34 +132,40 @@ def do_work_from_queue():
 
             continue
 
-        # print '[-]crawlers are at %s , deepth:[%s]' % (target_url, now_deepth)
         informations['page'], informations['deepth'] = informations['page'] + 1, now_deepth if now_deepth > informations['deepth'] else informations['deepth']
 
         try:
             soup_html = start_crawling_retrieve_html(target_url, now_deepth)
         except Exception as e:
-            filePoint.write('[!] exception at threadpool.py Line 127\n')
-            filePoint.write('\nException : %s' % e)
+            filePoint = open('Log', 'a')
+            filePoint.write('\n[!] exception at threadpool.py Line 127')
+            filePoint.write('\nException : %s\n' % e)
             # print 'position 5 with target_url : ' + target_url
 
         # 当前深度等于爬取最大深度时，
         # 不再把当前深度的下一深度链接放入待爬取队列中
         # 而是直接从队列中取下一个待爬取内容, 
         # 此处考虑直接用break跳出循环的话等于终止了线程，所以使用continue
+        # 去队列里面取下一个任务
         if now_deepth == int(deepth_of_crawlers_go):          
-            # spared_crawlers += 1
-            # print 'spared crawlers[%s]' % spared_crawlers
-            # if spared_crawlers == 5:
-            #     pass
-                # break_all()
             continue
         now_deepth += 1
         add_next_deepth_to_queue(soup_html, now_deepth, target_url)
-        
 
-def make_and_start_thread_pool(number_of_thread_in_pool=5, deepth=1, keyword='', deamons=True):
-    global deepth_of_crawlers_go, thread_pool_size, search_keyword
-    deepth_of_crawlers_go, thread_pool_size, search_keyword = deepth, number_of_thread_in_pool, keyword
+        
+def regexPattern(regex, raw_html):
+    pattern = re.compile(regex)
+    matches = pattern.finditer(raw_html)
+    print Fore.RED +  '[*]Accroding Regex Pattern, Matches Are Shown Below:'
+    for match in matches:
+        print Fore.RED + Style.DIM + match.group(1) + Style.BRIGHT + Fore.GREEN
+
+
+def make_and_start_thread_pool(number_of_thread_in_pool=5, deepth=1, keyword='', regex='',deamons=True):
+    global deepth_of_crawlers_go, thread_pool_size
+    global search_keyword, regex_pattern
+    deepth_of_crawlers_go, thread_pool_size= deepth, number_of_thread_in_pool
+    search_keyword, regex_pattern = keyword, regex
 
     for i in range(int(number_of_thread_in_pool)):
         new_thread = threading.Thread(target=do_work_from_queue)
@@ -195,4 +216,3 @@ if __name__ == "__main__":
     add_work('http://www.hao123.com', 0)
     deepth_of_crawlers_go = 2
     make_and_start_thread_pool()
-

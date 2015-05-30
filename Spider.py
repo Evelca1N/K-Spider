@@ -43,12 +43,13 @@ if __name__ == "__main__":
     parser.add_option('-k', '--key', dest='keyword', help='the specifc keyword to retrieve with, default is the whole page')
     # parser.add_option('-f', '--file', dest='file', help='the file to save the crawled data')
     parser.add_option('-l', '--log', dest='log', help='the file to record the level of verboseness', default='Log')
+    parser.add_option('-r', '--regex', dest='regex', help='the regex pattern to be retrieved') 
     (options, args) = parser.parse_args()
 
     if options.url:
         # 修正传递url时前面没有加schema的情况
         options.url = url_fix(options.url)
-        print Style.BRIGHT + Fore.YELLOW + '[-] the parent url is : %s' % options.url + Style.RESET_ALL
+        print Style.BRIGHT + Fore.YELLOW + '[-] the parent url is : %s' % options.url  + Style.RESET_ALL + Fore.GREEN + Style.BRIGHT
 
         # 全局参数_DEBUG = True时进入调试模式
         if url_exists(options.url):
@@ -59,16 +60,19 @@ if __name__ == "__main__":
             # log记录在特定文件中
             if options.log:
                 LogFile(options.log, options.url)
-        
+
             # 添加根网页，爬虫开始运作
             add_work(options.url)
 
             # 线程池开始运作
-            make_and_start_thread_pool(options.thread_num, options.deep, options.keyword)
+            make_and_start_thread_pool(options.thread_num, options.deep, options.keyword, options.regex)
 
-            # 每隔5s输出爬虫情况,爬虫爬完退出
+            # 每隔5s输出爬虫情况,爬虫爬完退出,有一定延迟
             while not job_finished():
                 information = get_crawlers_information()
+                if options.deep == 1:
+                    time.sleep(2)
+                    break
                 time.sleep(5)
         else:
             print Style.DIM + Fore.RED + Back.BLACK
