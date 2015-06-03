@@ -36,16 +36,13 @@ def get_all_from_queue(queue):
             yield queue.get_nowait()
     except Queue.Empty as e:
         filePoint = open('Log', 'a')
-        filePoint.write('\n[!] exception at threadpool.py Line 33')
+        filePoint.write('\n[!] exception at threadpool.py Line 39')
         filePoint.write('\nException : %s\n' % e)
         raise StopIteration
 
 
 def title_check(title):
-    try:
-        return title[title.rfind('/') + 1:]
-    except:
-        return 'None'
+    return title[title.rfind('/') + 1:]
 
 
 def start_crawling_retrieve_html(target_url, now_deepth):
@@ -54,18 +51,26 @@ def start_crawling_retrieve_html(target_url, now_deepth):
     request = requests.get(target_url, headers=headers)
     raw_html = request.content
     soup_html = BeautifulSoup(raw_html, from_encoding='gb18030')
-    title = soup_html.title.string
-    title = title_check(title)
+    
+    # 有时页面并没有title标签，之前未经过处理所以当title标签唯恐的时候会返回一个异常
+    try:
+        title = title_check(soup_html.title.string)
+    except:
+        title = 'None'
 
-    # 关键字不存在的情况下直接返回, 就算当前页面不含关键字仍然
-    # 往当前页面的下级页面进行搜索
-    global search_keyword, regex_pattern
-    if search_keyword and search_keyword not in raw_html:
-        return soup_html
+    try:
+        # 关键字不存在的情况下直接返回, 就算当前页面不含关键字仍然
+        # 往当前页面的下级页面进行搜索
+        global search_keyword, regex_pattern
+        if search_keyword and search_keyword not in raw_html:
+            return soup_html
 
-    # 取回当前site的html之后对rePattern进行检查，有匹配的话就保存下来
-    if regex_pattern:
-        regexPattern(regex_pattern, raw_html)
+        # 取回当前site的html之后对rePattern进行检查，有匹配的话就保存下来
+        if regex_pattern:
+            regexPattern(regex_pattern, raw_html)
+    except:
+        print 'here'
+    input
 
     try:
         file_point = open('output/deep%s/"%s".html' % (now_deepth, title[:70]), 'w')           # 将爬取到的html数据按照htlm<title>中内容保存到output文件夹
@@ -75,13 +80,13 @@ def start_crawling_retrieve_html(target_url, now_deepth):
             file_point.close()
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 69')
+            filePoint.write('\n[!] exception at threadpool.py Line 78')
             filePoint.write('\nException : %s\n' % e)
             file_point.close()
 
     except Exception as e:
         filePoint = open('Log', 'a')
-        filePoint.write('\n[!] exception at threadpool.py Line 75')
+        filePoint.write('\n[!] exception at threadpool.py Line 84')
         filePoint.write('\nException : %s\n' % e)
 
     return soup_html
@@ -98,7 +103,7 @@ def add_next_deepth_to_queue(soup_html, now_deepth, target_url):
                 links.add(target_url + link['href'])
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 92')
+            filePoint.write('\n[!] exception at threadpool.py Line 101')
             filePoint.write('\nException : %s\n' % e)
     
     for link in links:
@@ -122,7 +127,7 @@ def do_work_from_queue():
                 except NameError as e:
                     # filePoint = open('Log', 'a')
                     # filePoint.write('\n[!] exception at \
-                                # threadpool.py Line 117')
+                                # threadpool.py Line 125')
                     # filePoint.write('\nException : %s\n' % e)
                     pass
                 break
@@ -138,7 +143,7 @@ def do_work_from_queue():
             soup_html = start_crawling_retrieve_html(target_url, now_deepth)
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 127')
+            filePoint.write('\n[!] exception at threadpool.py Line 141')
             filePoint.write('\nException : %s\n' % e)
             # print 'position 5 with target_url : ' + target_url
 
@@ -152,13 +157,28 @@ def do_work_from_queue():
         now_deepth += 1
         add_next_deepth_to_queue(soup_html, now_deepth, target_url)
 
-        
+
 def regexPattern(regex, raw_html):
     pattern = re.compile(regex)
     matches = pattern.finditer(raw_html)
+    groupNum = 1
+
+    for match in matches:
+        while(True):
+            try:
+                match.group(groupNum)
+                groupNum += 1
+            except:
+                break
+        break
+
+    matches = pattern.finditer(raw_html)
     print Fore.RED +  '[*]Accroding Regex Pattern, Matches Are Shown Below:'
     for match in matches:
-        print Fore.RED + Style.DIM + match.group(1) + Style.BRIGHT + Fore.GREEN
+        for i in xrange(1, groupNum):
+            print Fore.RED + Style.DIM + match.group(i) + Style.BRIGHT + \
+                                                    Fore.GREEN,
+        print 
 
 
 def make_and_start_thread_pool(number_of_thread_in_pool=5, deepth=1, keyword='', regex='',deamons=True):
