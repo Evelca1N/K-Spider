@@ -1,7 +1,7 @@
 # K-Spider
 a spider based on the requirement of KnownSec recuitment
 
-spider.py -u url -d deep -f logfile --testself -thread number --dbfile filepath --key=”HTML5”
+spider.py -u url -d deep -l logfile -thread number --key=”HTML5” -r ''
 
 ##参数说明：##
 ```
