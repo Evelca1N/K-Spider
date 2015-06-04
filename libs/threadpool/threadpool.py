@@ -26,7 +26,8 @@ regex_pattern = ''      # Regex pattenr used for matching the specific data
 _DEBUG = False          # Debug mode switcher
 
 
-headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:36.0) Gecko/20100101 Firefox/36.0',
+headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:36.0)\
+                        Gecko/20100101 Firefox/36.0',
            'Cookie': ''}
 
 
@@ -36,7 +37,7 @@ def get_all_from_queue(queue):
             yield queue.get_nowait()
     except Queue.Empty as e:
         filePoint = open('Log', 'a')
-        filePoint.write('\n[!] exception at threadpool.py Line 39')
+        filePoint.write('\n[!] exception at threadpool.py Line 40')
         filePoint.write('\nException : %s\n' % e)
         raise StopIteration
 
@@ -64,29 +65,34 @@ def start_crawling_retrieve_html(target_url, now_deepth):
         global search_keyword, regex_pattern
         if search_keyword and search_keyword not in raw_html:
             return soup_html
-
         # 取回当前site的html之后对rePattern进行检查，有匹配的话就保存下来
         if regex_pattern:
             regexPattern(regex_pattern, raw_html)
-    except:
-        print 'here'
-    input
+
+    except Exception as e:
+        filePoint = open('Log', 'a')
+        filePoint.write('\n[!] exception at threadpool.py Line 74')
+        filePoint.write('\nException : %s\n' % e)
+        file_point.close()
 
     try:
-        file_point = open('output/deep%s/"%s".html' % (now_deepth, title[:70]), 'w')           # 将爬取到的html数据按照htlm<title>中内容保存到output文件夹
+        file_point = open('output/deep%s/"%s".html' \
+                                % (now_deepth, title[:70]), 'w')           
+
+        # 将爬取到的html数据按照htlm<title>中内容保存到output文件夹
         try:
             # raw_html = raw_html.encode('utf-8')
             file_point.write(raw_html)
             file_point.close()
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 78')
+            filePoint.write('\n[!] exception at threadpool.py Line 89')
             filePoint.write('\nException : %s\n' % e)
             file_point.close()
 
     except Exception as e:
         filePoint = open('Log', 'a')
-        filePoint.write('\n[!] exception at threadpool.py Line 84')
+        filePoint.write('\n[!] exception at threadpool.py Line 95')
         filePoint.write('\nException : %s\n' % e)
 
     return soup_html
@@ -97,13 +103,15 @@ def add_next_deepth_to_queue(soup_html, now_deepth, target_url):
     links = set()
     for link in soup_html.find_all('a'):
         try:
-            if link['href'].startswith('http://') or link['href'].startswith('https://'):
+            if link['href'].startswith('http://') \
+                        or link['href'].startswith('https://'):
                 links.add(link['href'])
             elif link['href'].startswith('/'):
                 links.add(target_url + link['href'])
+
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 101')
+            filePoint.write('\n[!] exception at threadpool.py Line 112')
             filePoint.write('\nException : %s\n' % e)
     
     for link in links:
@@ -127,23 +135,27 @@ def do_work_from_queue():
                 except NameError as e:
                     # filePoint = open('Log', 'a')
                     # filePoint.write('\n[!] exception at \
-                                # threadpool.py Line 125')
+                                # threadpool.py Line 138')
                     # filePoint.write('\nException : %s\n' % e)
                     pass
                 break
 
             spared_thread += 1
-            # print '(i)spared thread [%s], total thread [%s], active thread[%s]' % (spared_thread, int(thread_pool_size), threading.activeCount())
+            # print '(i)spared thread [%s], total thread [%s], \
+                    # active thread[%s]' % (spared_thread, \
+                    # int(thread_pool_size), threading.activeCount())
 
             continue
 
-        informations['page'], informations['deepth'] = informations['page'] + 1, now_deepth if now_deepth > informations['deepth'] else informations['deepth']
+        informations['page'], informations['deepth'] = \
+          informations['page'] + 1, now_deepth \
+          if now_deepth > informations['deepth'] else informations['deepth']
 
         try:
             soup_html = start_crawling_retrieve_html(target_url, now_deepth)
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 141')
+            filePoint.write('\n[!] exception at threadpool.py Line 158')
             filePoint.write('\nException : %s\n' % e)
             # print 'position 5 with target_url : ' + target_url
 
@@ -162,18 +174,13 @@ def regexPattern(regex, raw_html):
     pattern = re.compile(regex)
     matches = pattern.finditer(raw_html)
     groupNum = 1
+    parenthesePattern = re.compile(r'[^\\]\(.+?\)')
 
-    for match in matches:
-        while(True):
-            try:
-                match.group(groupNum)
-                groupNum += 1
-            except:
-                break
-        break
+    groupNum += len(parenthesePattern.findall(regex))
 
     matches = pattern.finditer(raw_html)
-    print Fore.RED +  '[*]Accroding Regex Pattern, Matches Are Shown Below:'
+    print Fore.RED +  '[*]Accroding Regex Pattern, %s Group Found\
+ Regex Matches Are Shown Below:' % groupNum
     for match in matches:
         for i in xrange(1, groupNum):
             print Fore.RED + Style.DIM + match.group(i) + Style.BRIGHT + \
@@ -181,7 +188,8 @@ def regexPattern(regex, raw_html):
         print 
 
 
-def make_and_start_thread_pool(number_of_thread_in_pool=5, deepth=1, keyword='', regex='',deamons=True):
+def make_and_start_thread_pool(number_of_thread_in_pool=5, \
+                    deepth=1, keyword='', regex='',deamons=True):
     global deepth_of_crawlers_go, thread_pool_size
     global search_keyword, regex_pattern
     deepth_of_crawlers_go, thread_pool_size= deepth, number_of_thread_in_pool
@@ -225,7 +233,8 @@ def job_finished():
 def get_crawlers_information():
     global informations, Pool
     # print 'Total page{}'.format(len(Pool))
-    print '[-] Totally %s page crawled, deepest deepth is %s' % (informations['page'], informations['deepth'])
+    print '[-] Totally %s page crawled, deepest deepth is %s'\
+            % (informations['page'], informations['deepth'])
     pass   
         
 
