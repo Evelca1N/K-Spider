@@ -174,11 +174,10 @@ def regexPattern(regex, raw_html):
     pattern = re.compile(regex)
     matches = pattern.finditer(raw_html)
     groupNum = 1
-    parenthesePattern = re.compile(r'[^\\]\(.+?\)')
-
+    parenthesePattern = re.compile(r'(?<!\\)\(.+?\)')
     groupNum += len(parenthesePattern.findall(regex))
-
     matches = pattern.finditer(raw_html)
+
     print Fore.RED +  '[*]Accroding Regex Pattern, %s Group Found\
  Regex Matches Are Shown Below:' % groupNum
     for match in matches:
