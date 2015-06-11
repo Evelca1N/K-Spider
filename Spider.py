@@ -73,7 +73,7 @@ if __name__ == "__main__":
                 if options.deep == 1:
                     time.sleep(2)
                     break
-                time.sleep(5)
+                time.sleep(3)
         else:
             print Style.DIM + Fore.RED + Back.BLACK
             print '(i) url %s not exists !' % options.url[7:]

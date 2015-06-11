@@ -4,13 +4,15 @@
 
 import threading
 import Queue
-from bs4 import BeautifulSoup
 import urllib2
 import requests
 import pdb
 import re
+from bs4 import BeautifulSoup
+from random import randint
 
 from libs.fontcolor.colorama import *
+from libs.urllibs.randomAgent import agentList
 
 
 finished_flag = False   # Flag telling if the spider is stop crawling
@@ -24,10 +26,10 @@ href_list = []          # List of finished url
 search_keyword = ''     # Search Keyword
 regex_pattern = ''      # Regex pattenr used for matching the specific data
 _DEBUG = False          # Debug mode switcher
+active_count = 0
 
 
-headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux i686; rv:36.0)\
-                        Gecko/20100101 Firefox/36.0',
+headers = {'User-Agent': '',
            'Cookie': ''}
 
 
@@ -49,6 +51,8 @@ def title_check(title):
 def start_crawling_retrieve_html(target_url, now_deepth):
     """Returns the soup_html which conntains the link ref"""
 
+    # fake User-Agent headers to escape from anti-crawling 
+    headers['User-Agent'] = agentList[randint(0, len(agentList) - 1)]
     request = requests.get(target_url, headers=headers)
     raw_html = request.content
     soup_html = BeautifulSoup(raw_html, from_encoding='gb18030')
@@ -76,8 +80,10 @@ def start_crawling_retrieve_html(target_url, now_deepth):
         file_point.close()
 
     try:
-        file_point = open('output/deep%s/"%s".html' \
-                                % (now_deepth, title[:70]), 'w')           
+        global active_count
+        file_point = open('output/deep%s/"%s".html' % (now_deepth, active_count), 'w')#\
+                                # % (now_deepth, title[:70]), 'w')           
+        active_count += 1
 
         # 将爬取到的html数据按照htlm<title>中内容保存到output文件夹
         try:
@@ -121,10 +127,15 @@ def add_next_deepth_to_queue(soup_html, now_deepth, target_url):
 
 def do_work_from_queue():
     global informations
+    global active_count
+
     while True:
 
         try:
-            target_url, now_deepth = Qin.get(block=True, timeout=3)      
+            target_url, now_deepth = Qin.get(block=True, timeout=3)
+
+            # active_count += 1
+            # print 'Active count %s' % active_count
             # 此处可能等待,爬虫从Qin中得到信息元组(target_url, deepth),
             # 另外这里有一点要提一下，timeout需要根据当前网络状况适当调整
         except Queue.Empty:
@@ -138,13 +149,15 @@ def do_work_from_queue():
                                 # threadpool.py Line 138')
                     # filePoint.write('\nException : %s\n' % e)
                     pass
-                break
+                # break
 
             spared_thread += 1
-            # print '(i)spared thread [%s], total thread [%s], \
-                    # active thread[%s]' % (spared_thread, \
-                    # int(thread_pool_size), threading.activeCount())
-
+            """
+            print '(i)spared thread [%s], total thread [%s], \
+                    active thread[%s]' % (spared_thread, \
+                    int(thread_pool_size), threading.active_count())
+            """
+            # active_count -= 1
             continue
 
         informations['page'], informations['deepth'] = \
@@ -155,10 +168,12 @@ def do_work_from_queue():
             soup_html = start_crawling_retrieve_html(target_url, now_deepth)
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 158')
+            filePoint.write('\n[!] exception at threadpool.py Line 169')
             filePoint.write('\nException : %s\n' % e)
             # print 'position 5 with target_url : ' + target_url
-
+            # active_count -= 1
+            continue
+        # active_count -= 1
         # 当前深度等于爬取最大深度时，
         # 不再把当前深度的下一深度链接放入待爬取队列中
         # 而是直接从队列中取下一个待爬取内容, 
