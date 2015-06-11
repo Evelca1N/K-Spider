@@ -51,3 +51,7 @@ Back  = AnsiCodes(AnsiBack)
 Style = AnsiCodes(AnsiStyle)
 
 
+if __name__ == "__main__":
+    """ color test """
+
+    print Fore.RED + 'Red test'
