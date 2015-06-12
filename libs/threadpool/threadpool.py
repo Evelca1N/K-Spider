@@ -9,11 +9,13 @@ import requests
 import pdb
 import re
 import sys
+from time import sleep
 from bs4 import BeautifulSoup
 from random import randint
 
 from libs.fontcolor.colorama import *
 from libs.urllibs.randomAgent import agentList
+from libs.urllibs.charset import charsetor
 
 
 finished_flag = False   # Flag telling if the spider is stop crawling
@@ -27,7 +29,9 @@ href_list = []          # List of finished url
 search_keyword = ''     # Search Keyword
 regex_pattern = ''      # Regex pattenr used for matching the specific data
 _DEBUG = False          # Debug mode switcher
-active_count = 0
+wait_time = 0           # Time wait between two request(to each thread)
+active_count = 0        # test param1
+page_count = 0
 
 
 headers = {'User-Agent': '',
@@ -51,14 +55,15 @@ def title_check(title):
 
 def start_crawling_retrieve_html(target_url, now_deepth):
     """Returns the soup_html which conntains the link ref"""
+    global charsetor
 
-        # fake User-Agent headers to escape from anti-crawling 
+    # fake User-Agent headers to escape from anti-crawling 
     headers['User-Agent'] = agentList[randint(0, len(agentList) - 1)]
     request = requests.get(target_url, headers=headers)
-    try:
-        raw_html = request.content.decode('gbk')
-    except:
-        raw_html = request.content.decode('utf-8')
+    raw_html = request.content
+    # charset detector for determining the charset being used to avoid mess
+    charset = charsetor.search(raw_html).group(1)
+    raw_html = raw_html.decode(charset)
     soup_html = BeautifulSoup(raw_html)
     
     # 有时页面并没有title标签，之前未经过处理所以当title标签唯恐的时候会返回一个异常
@@ -86,16 +91,15 @@ def start_crawling_retrieve_html(target_url, now_deepth):
         file_point.close()
 
     try:
-        global active_count
+        global page_count 
         file_point = open('output/deep%s/"%s".html'\
-                                % (now_deepth, active_count), 'w')
+                                % (now_deepth, page_count), 'w')
                                 # % (now_deepth, title[:70]), 'w')           
-        active_count += 1
+        page_count += 1
 
         # 将爬取到的html数据按照htlm<title>中内容保存到output文件夹
         try:
-            # raw_html = raw_html.encode('utf-8')
-            file_point.write(raw_html)
+            file_point.write(raw_html.encode('utf-8'))
             file_point.close()
         except Exception as e:
             filePoint = open('Log', 'a')
@@ -135,6 +139,8 @@ def add_next_deepth_to_queue(soup_html, now_deepth, target_url):
 def do_work_from_queue():
     global informations
     global active_count
+    global wait_time
+    wait_time = float(wait_time)
 
     while True:
 
@@ -159,12 +165,8 @@ def do_work_from_queue():
                 # break
 
             spared_thread += 1
-            """
-            print '(i)spared thread [%s], total thread [%s], \
-                    active thread[%s]' % (spared_thread, \
-                    int(thread_pool_size), threading.active_count())
-            """
             # active_count -= 1
+            sleep(wait_time)
             continue
 
         informations['page'], informations['deepth'] = \
@@ -177,10 +179,11 @@ def do_work_from_queue():
             filePoint = open('Log', 'a')
             filePoint.write('\n[!] exception at threadpool.py Line 169')
             filePoint.write('\nException : %s\n' % e)
-            # print 'position 5 with target_url : ' + target_url
             # active_count -= 1
+            sleep(wait_time)
             continue
         # active_count -= 1
+        sleep(wait_time)
         # 当前深度等于爬取最大深度时，
         # 不再把当前深度的下一深度链接放入待爬取队列中
         # 而是直接从队列中取下一个待爬取内容, 
@@ -210,11 +213,11 @@ def regexPattern(regex, raw_html):
 
 
 def make_and_start_thread_pool(number_of_thread_in_pool=5, \
-                    deepth=1, keyword='', regex='',deamons=True):
+            deepth=1, keyword='', regex='', time=0, deamons=True):
     global deepth_of_crawlers_go, thread_pool_size
-    global search_keyword, regex_pattern
-    deepth_of_crawlers_go, thread_pool_size= deepth, number_of_thread_in_pool
-    search_keyword, regex_pattern = keyword, regex
+    global search_keyword, regex_pattern, wait_time
+    deepth_of_crawlers_go, thread_pool_size = deepth, number_of_thread_in_pool
+    search_keyword, regex_pattern, wait_time = keyword, regex, time
     for i in range(int(number_of_thread_in_pool)):
         new_thread = threading.Thread(target=do_work_from_queue)
         new_thread.setDaemon(deamons)

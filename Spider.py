@@ -37,21 +37,23 @@ if __name__ == "__main__":
 
     # 解析传入的参数，并存入对应的位置
     parser = optparse.OptionParser('\
-                python K.py -u url --thread=10 --deep=2 --key=keyword')
+python K.py -u url --thread=10 --deep=2 --key=keyword')
     parser.add_option('-u',\
             dest='url', help='the url where put the crawlers on')
     parser.add_option('-d', '--deep', dest='deep', help='the deepth lovely \
-            crawlers dig, default deepth is 1', default=1, metavar='DEEPTH')
+crawlers dig, default deepth is 1', default=1, metavar='DEEPTH')
     parser.add_option('--thread', dest='thread_num', help='the number of \
-            thread for crawlers, default thread_num is 10', default=10)
+thread for crawlers, default thread_num is 10', default=10)
     parser.add_option('-k', '--key', dest='keyword', help='the specifc \
-            keyword to retrieve with, default is the whole page')
+keyword to retrieve with, default is the whole page')
     # parser.add_option('-f', '--file', dest='file', help='the file to \
                 # save the crawled data')
     parser.add_option('-l', '--log', dest='log', help='the file to \
-            record the level of verboseness', default='Log')
+record the level of verboseness', default='Log')
     parser.add_option('-r', '--regex', dest='regex', \
             help='the regex pattern to be retrieved') 
+    parser.add_option('--time', metavar='second', dest='wait_time', \
+            help='time-wait between two request', default=0)
 
     (options, args) = parser.parse_args()
     if options.url:
@@ -75,7 +77,8 @@ if __name__ == "__main__":
             add_work(options.url)
 
             # 线程池开始运作
-            make_and_start_thread_pool(options.thread_num, options.deep, options.keyword, options.regex)
+            make_and_start_thread_pool(options.thread_num, \
+            options.deep, options.keyword, options.regex, options.wait_time)
 
             # 每隔5s输出爬虫情况,爬虫爬完退出,有一定延迟
             while not job_finished():
@@ -85,8 +88,8 @@ if __name__ == "__main__":
                     break
                 time.sleep(3)
         else:
-            print Style.DIM + Fore.RED + Back.BLACK
-            print '(i) url %s not exists !' % options.url[7:]
+            print Style.DIM + Fore.RED + Back.BLACK + \
+                    '(i) url %s not accessible !' % options.url[7:],
             print Style.BRIGHT + Fore.YELLOW + Back.RESET
             parser.print_help()
             print Style.RESET_ALL
