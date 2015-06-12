@@ -78,7 +78,7 @@ version 2.0 《==== 目前进度
 
 未完成：
 
-**.
+*.
 mac下出现编码问题不能运行
 (已解决)
 req.content经过解码之后decode('utf-8') / decode('gbk')可以部分解决问题
@@ -86,7 +86,7 @@ req.content经过解码之后decode('utf-8') / decode('gbk')可以部分解决�
 (待改进) 
 仍然有网站meta声明的charset格式和实际格式不符
 
-**
+**.
 ver1.4待优化的url去重问题， 已经严重影响到效率了， 急需解决
 
 *.
