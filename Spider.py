@@ -10,8 +10,9 @@
 # fucntion:
 # keyword(YES) / deepth(YES) / threadpool(YES) / retrive_html(YES) / 
 # information(YES) / sqlite_file & verboseness(NO) / Log_file(YES)
+# regex_fetch(YES) / time_wait(YES) /
 
-# May 28, 2015
+# JUN 14, 2015
 # ================================
 
 from libs.threadpool.threadpool import *
