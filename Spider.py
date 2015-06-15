@@ -22,7 +22,7 @@ from libs.fontcolor.colorama import *
 from libs.urllibs.setlog import *
 
 import urllib2
-import sys
+import sys ; reload(sys); sys.setdefaultencoding('utf-8')
 import optparse
 import time
 import pdb

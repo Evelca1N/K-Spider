@@ -1,0 +1,1328 @@
+----------------------------
+
+Spider.py -u sina.com.cn 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 11:29:35
+
+
+[!] exception at threadpool.py Line 169
+Exception : 'gb2312' codec can't decode bytes in position 136177-136178: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 11:29:43
+
+
+[!] exception at threadpool.py Line 169
+Exception : 'gb2312' codec can't decode bytes in position 136177-136178: illegal multibyte sequence
+----------------------------
+
+Spider.py -u baidu.com -d 2 
+[*] Crawling URL : http://baidu.com at :2015-06-15 11:29:59
+
+
+[!] exception at threadpool.py Line 169
+Exception : 'gb2312' codec can't decode bytes in position 137825-137826: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gb2312' codec can't decode bytes in position 136652-136653: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 11:30:14
+
+
+[!] exception at threadpool.py Line 169
+Exception : 'gb2312' codec can't decode bytes in position 136177-136178: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 11:30:43
+
+
+[!] exception at threadpool.py Line 169
+Exception : 'gb2312' codec can't decode bytes in position 136177-136178: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 11:31:45
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1262-1263: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 953-954: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1190-1191: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1253-1254: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1207-1208: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1235-1236: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1222-1223: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1142-1143: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 959-960: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 992-993: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1158-1159: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1204-1205: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1064-1065: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+----------------------------
+
+Spider.py -u sina.com.cn 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 12:55:11
+
+----------------------------
+
+Spider.py -u sina.com.cn 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 12:55:54
+
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 16:52:08
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 16:52:19
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 16:53:31
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 16:55:33
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:15:31
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:22:35
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:23:17
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:23:57
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:25:13
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:26:44
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:26:54
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:27:05
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:27:52
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:28:09
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+----------------------------
+
+Spider.py -u baidu.com 
+[*] Crawling URL : http://baidu.com at :2015-06-15 17:30:32
+
+----------------------------
+
+Spider.py -u baidu.com -d 2 
+[*] Crawling URL : http://baidu.com at :2015-06-15 17:30:35
+
+----------------------------
+
+Spider.py -u baidu.com -d 2 
+[*] Crawling URL : http://baidu.com at :2015-06-15 17:31:43
+
+----------------------------
+
+Spider.py -u sina.com.cn 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:34:07
+
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:34:09
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:34:27
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:35:49
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:36:35
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:37:10
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:37:17
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:37:32
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:38:05
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:38:24
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:42:03
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:42:38
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:46:13
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:48:34
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:51:56
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:52:36
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:52:50
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 17:54:51
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 18:03:50
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 18:04:10
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1255-1256: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1122-1123: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1262-1263: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 992-993: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 953-954: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1064-1065: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1213-1214: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 959-960: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1210-1211: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1222-1223: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1174-1175: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1204-1205: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1057-1058: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1272-1273: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1038-1039: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1142-1143: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 293544-293545: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1119-1120: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1233-1234: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1080-1081: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1218-1219: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1147-1148: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1076-1077: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1299-1300: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1239-1240: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1145-1146: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1203-1204: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 976-977: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1091-1092: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1194-1195: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1070-1071: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 985-986: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 923-924: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1303-1304: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1087-1088: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1077-1078: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1257-1258: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1265-1266: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1297-1298: illegal multibyte sequence
+----------------------------
+
+Spider.py -u baidu.com -d 2 
+[*] Crawling URL : http://baidu.com at :2015-06-15 21:22:27
+
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 21:22:47
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 992-993: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 953-954: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1213-1214: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1262-1263: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1174-1175: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 959-960: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1235-1236: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1142-1143: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1057-1058: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1233-1234: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1188-1189: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1064-1065: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1147-1148: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1246-1247: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1222-1223: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 21:25:20
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1188-1189: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1262-1263: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 953-954: illegal multibyte sequence
+----------------------------
+
+Spider.py -u sina.com.cn -d 2 
+[*] Crawling URL : http://sina.com.cn at :2015-06-15 21:26:07
+
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 112
+Exception : 'href'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1304-1305: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1196-1197: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1188-1189: illegal multibyte sequence
+
+[!] exception at threadpool.py Line 169
+Exception : 'NoneType' object has no attribute 'group'
+
+[!] exception at threadpool.py Line 169
+Exception : 'gbk' codec can't decode bytes in position 1051-1052: illegal multibyte sequence

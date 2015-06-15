@@ -16,6 +16,7 @@ from random import randint
 from libs.fontcolor.colorama import *
 from libs.urllibs.randomAgent import agentList
 from libs.urllibs.charset import charsetor
+from libs.urllibs.BloomFilter import BloomFilter
 
 
 finished_flag = False   # Flag telling if the spider is stop crawling
@@ -26,6 +27,7 @@ spared_thread = 0           # spared_thread
 thread_pool_size = 0        # Size of thread pool
 informations = {'page':0, 'deepth':0}   # Informations turple
 href_list = []          # List of finished url
+bloomFilter = BloomFilter(5000000, 7)
 search_keyword = ''     # Search Keyword
 regex_pattern = ''      # Regex pattenr used for matching the specific data
 _DEBUG = False          # Debug mode switcher
@@ -44,7 +46,7 @@ def get_all_from_queue(queue):
             yield queue.get_nowait()
     except Queue.Empty as e:
         filePoint = open('Log', 'a')
-        filePoint.write('\n[!] exception at threadpool.py Line 40')
+        filePoint.write('\n[!] exception at threadpool.py Line 49')
         filePoint.write('\nException : %s\n' % e)
         raise StopIteration
 
@@ -63,7 +65,11 @@ def start_crawling_retrieve_html(target_url, now_deepth):
     raw_html = request.content
     # charset detector for determining the charset being used to avoid mess
     charset = charsetor.search(raw_html).group(1)
-    raw_html = raw_html.decode(charset)
+    try:
+        raw_html = raw_html.decode(charset)
+    except:
+        # 针对新浪设置, 新浪有些页面实际编码与meta标签中的不符
+        raw_html = raw_html.decode('gbk')
     soup_html = BeautifulSoup(raw_html)
     
     # 有时页面并没有title标签，之前未经过处理所以当title标签唯恐的时候会返回一个异常
@@ -86,7 +92,7 @@ def start_crawling_retrieve_html(target_url, now_deepth):
 
     except Exception as e:
         filePoint = open('Log', 'a')
-        filePoint.write('\n[!] exception at threadpool.py Line 74')
+        filePoint.write('\n[!] exception at threadpool.py Line 95')
         filePoint.write('\nException : %s\n' % e)
         file_point.close()
 
@@ -103,13 +109,13 @@ def start_crawling_retrieve_html(target_url, now_deepth):
             file_point.close()
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 89')
+            filePoint.write('\n[!] exception at threadpool.py Line 112')
             filePoint.write('\nException : %s\n' % e)
             file_point.close()
 
     except Exception as e:
         filePoint = open('Log', 'a')
-        filePoint.write('\n[!] exception at threadpool.py Line 95')
+        filePoint.write('\n[!] exception at threadpool.py Line 118')
         filePoint.write('\nException : %s\n' % e)
 
     return soup_html
@@ -128,12 +134,13 @@ def add_next_deepth_to_queue(soup_html, now_deepth, target_url):
 
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 112')
+            filePoint.write('\n[!] exception at threadpool.py Line 137')
             filePoint.write('\nException : %s\n' % e)
     
     for link in links:
-        # Qin.put((link, now_deepth))
-        add_work(link, now_deepth)
+        if not bloomFilter.find(link.strip()):
+            bloomFilter.add(link)
+            add_work(link, now_deepth)
 
 
 def do_work_from_queue():
@@ -159,7 +166,7 @@ def do_work_from_queue():
                 except NameError as e:
                     # filePoint = open('Log', 'a')
                     # filePoint.write('\n[!] exception at \
-                                # threadpool.py Line 138')
+                                # threadpool.py Line ')
                     # filePoint.write('\nException : %s\n' % e)
                     pass
                 # break
@@ -177,7 +184,7 @@ def do_work_from_queue():
             soup_html = start_crawling_retrieve_html(target_url, now_deepth)
         except Exception as e:
             filePoint = open('Log', 'a')
-            filePoint.write('\n[!] exception at threadpool.py Line 169')
+            filePoint.write('\n[!] exception at threadpool.py Line 189')
             filePoint.write('\nException : %s\n' % e)
             # active_count -= 1
             sleep(wait_time)
@@ -226,12 +233,7 @@ def make_and_start_thread_pool(number_of_thread_in_pool=5, \
 
 
 def add_work(target_url, deepth=1):
-    if target_url not in href_list:
-        href_list.append(target_url)
-        Qin.put((target_url, deepth))
-        # rint href_list, len(href_list)
-    else:
-        return False
+    Qin.put((target_url, deepth))
 
 
 def stop_and_free_thread_pool():
